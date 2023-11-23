@@ -1,0 +1,23 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  block-queue:
+    specifier: ^0.0.2
+    version: 0.0.2
+  chinese-conv:
+    specifier: ^1.0.1
+    version: 1.0.1
+
+packages:
+
+  /block-queue@0.0.2:
+    resolution: {integrity: sha512-k1luakFO2NRxGOjtdxI1+T8S7JmmqJRaKIaU1NJuT9Fgu/WFSQ4dkrMsQw/p6j+p8Oa3oXFzvQNp5QjYAEWi8A==}
+    dev: false
+
+  /chinese-conv@1.0.1:
+    resolution: {integrity: sha512-LSjcG3ZwgEfjFHjqQc8HFvktEmapI6Y8s14LfmJcJAbFg5+6gPstndYHC6lfmKb+sU8+R5YQzSV95OBerdoUfA==}
+    dev: false
