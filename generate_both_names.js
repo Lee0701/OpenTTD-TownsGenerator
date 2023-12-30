@@ -3,19 +3,34 @@ const fs = require('fs')
 const readline = require('readline')
 const alternateNamesDict = require('./data/alternateNames/alternateNames_zh_hant_dict.json')
 
-const north = 60.00958
-const east = 20.00958
-const south = 29.99042
-const west = -10.00958
-const header = [north, east, south, west].join(',')
+const {header} = require('./header.js')
 
 const THRES_COUNT = 120000
 const THRES_CITY = 500000
 const THRES_L = 100000
 const THRES_M = 75000
 
+const NAME_MODE = 'transliterated'
+
 const convertPopulation = (population) => Math.round(Math.sqrt(population) * 2)
 // const convertPopulation = (population) => Math.round(population / 100)
+
+const formatTransliteratedName = (cjkName, asciiName) => cjkName
+const formatAsciiName = (cjkName, asciiName) => asciiName
+const formatBothNames = (cjkName, asciiName) => cjkName ? `${cjkName}/${asciiName}` : asciiName
+
+const formatName = (cjkName, asciiName) => {
+    switch(NAME_MODE) {
+        case 'transliterated':
+            return formatTransliteratedName(cjkName, asciiName)
+        case 'ascii':
+            return formatAsciiName(cjkName, asciiName)
+        case 'both':
+            return formatBothNames(cjkName, asciiName)
+        default:
+            return asciiName || cjkName
+    }
+}
 
 const main = async () => {
     const inFile = 'data/cities1000.txt'
@@ -44,7 +59,7 @@ const main = async () => {
         const dictName = alternateNamesDict[id]
         const inDataName = alternateNames.split(',').find((n) => n.split('').filter((c) => c >= '\u4e00' && c <= '\u9fff').length > n.length/2)
         const cjkName = dictName || inDataName
-        const outName = cjkName ? cjkName + ' / ' + asciiName : asciiName
+        const outName = formatName(cjkName, asciiName)
         if(!outName || !population) {
             failed.push(line)
             return
