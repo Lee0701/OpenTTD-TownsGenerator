@@ -1,48 +1,13 @@
 
 const fs = require('fs')
 const readline = require('readline')
+const {mergedCodeMap} = require('./industry_codes')
 
 const north = 60.009580000
 const east = 20.009580000
 const south = 29.990420000
 const west = -10.009580000
 const header = [north, east, south, west].join(',')
-
-const featureCodeMap = {
-    // coal mine
-    MNC: 0,
-    MN: 0, // mine
-    MNA: 0, // mining area
-    COLF: 0, // coalfield
-    // power station
-    PS: 1,
-    // sawmill
-    MLSW: 2,
-    ML: 2, // mill
-    // forest
-    FRST: 3,
-    // oil refinery
-    OILR: 4,
-    GOSP: 4, // gas-oil separator plant
-    OILT: 4, // tank farm
-    // factory
-    MFG: 6,
-    MFGQ: 6, // abandoned factory
-    MFGM: 6, // ammunation factory
-    INDS: 6, // industrial area
-    // ore treatment plant
-    MLM: 8,
-    FNDY: 8, // foundry
-    // farm
-    FRM: 9,
-    // iron mine
-    MNFE: 10,
-    MNQ: 10, // abandoned mine
-    // oil well
-    OILW: 11,
-    OILQ: 11, // abandoned oil well
-    WLL: 11, // well
-}
 
 const main = async () => {
     const inFile = 'data/allCountries.txt'
@@ -64,7 +29,7 @@ const main = async () => {
                 || outLongitude > east || outLongitude < west) {
             return
         }
-        const code = featureCodeMap[featureCode]
+        const code = mergedCodeMap[featureCode]
         if(code === undefined) {
             return
         }
