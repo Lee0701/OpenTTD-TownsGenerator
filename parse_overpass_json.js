@@ -32,7 +32,8 @@ const main = async () => {
     const result = []
     const files = fs.readdirSync(inDir)
     files.forEach((file) => {
-        result.push(...parseJson(path.join(inDir, file)))
+        const list = parseJson(path.join(inDir, file))
+        list.forEach((line) => result.push(line))
     })
     fs.writeFileSync(outFile, header + '\n' + result.join('\n'))
 }
