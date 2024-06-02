@@ -1,0 +1,216 @@
+
+# gold_mine
+[out:json];
+nr["resource"="gold"];
+out geom;
+
+# bank
+# UNDEFINED
+
+# tourists_centre
+# TODO
+
+# water_supply
+[out:json];
+node["man_made"="water_works"];
+out geom;
+
+# factory
+[out:json];
+nr["industrial"="factory"];
+out geom;
+
+# chemical_plant
+[out:json];
+nwr["industrial"="chemical"];
+out geom;
+
+# oil_well
+[out:json];
+node["man_made"="petroleum_well"];
+node["substance"="oil"];
+out geom;
+
+# oil_rig
+#UNDEFINED
+
+# oil_refinery
+[out:json];
+nr["product"="oil"];
+nr["industrial"="oil"];
+out geom;
+
+# plastic_plant (temp)
+[out:json];
+nwr["man_made"="works"];
+nwr["industrial"="plastic"];
+out geom;
+
+# forest
+[out:json];
+node["natural"="wood"];
+node["landuse"="forest"];
+out geom;
+
+# sawmill
+[out:json];
+nr["craft"="sawmill"];
+out geom;
+
+# paper_mill
+[out:json];
+nwr["product"="paper"];
+out geom;
+
+# printing_works
+[out:json];
+nr["shop"="copyshop"];
+out geom;
+
+# furniture_factory
+[out:json];
+(
+  node["industrial"="furniture"];
+  node["product"="furniture"];
+);
+out geom;
+
+# iron_ore_mine
+[out:json];
+nr["resource"="iron_ore"];
+out geom;
+
+# steel_mill
+[out:json];
+nwr["product"="steel"];
+out geom;
+
+# vehicles_factory
+[out:json];
+(
+  nwr["product"="car"];
+  nwr["industrial"="car"];
+);
+out geom;
+
+# shipyard
+[out:json];
+nr["industrial"="shipyard"];
+out geom;
+
+# bauxite_mine
+[out:json];
+nr["resource"="bauxite"];
+out geom;
+
+# aluminium_plant
+[out:json];
+nwr["industrial"="aluminium_smelting"];
+out geom;
+
+# coal_mine
+[out:json];
+node["resource"="coal"];
+out geom;
+
+# power_station
+[out:json];
+node["power"="plant"];
+out geom;
+
+# sand_pit
+[out:json];
+node["landuse"="quarry"];
+node["resource"="sand"];
+out geom;
+
+# glass_works
+[out:json];
+(
+  nwr["craft"="glass"];
+  nwr["industrial"="glass"];
+);
+out geom;
+
+# cement_works
+[out:json];
+nwr["product"="concrete"];
+out geom;
+
+# brick_works
+[out:json];
+nwr["product"="bricks"];
+out geom;
+
+# lime_quarry
+[out:json];
+nwr["resource"="limestone"];
+out geom;
+
+# cement_works
+# duplicate
+
+# construction_industry
+[out:json];
+nr["office"="construction_company"];
+out geom;
+
+# brick_works
+# duplicate
+
+# large_construction_industry
+[out:json];
+node["craft"="builder"];
+out geom;
+
+# fishing_grounds
+# ???
+
+# farm
+[out:json];
+node["place"="farm"];
+out geom;
+
+# animal_farm
+[out:json];
+nr["landuse"="animal_keeping"];
+out geom;
+
+# tinning_factory
+[out:json];
+node["craft"="tinsmith"];
+out geom;
+
+# textile_mill
+[out:json];
+node["man_made"="works"];
+node["shop"="fabric"];
+out geom;
+
+# fruit_plantation
+[out:json];
+(
+  node["landuse"="orchard"];
+  node["produce"="fruit"];
+);
+out geom;
+
+# brewery
+[out:json];
+node["man_made"="works"];
+node["craft"="brewery"];
+out geom;
+
+# food_processing_plant
+[out:json];
+node["man_made"="works"];
+node["product"="food"];
+out geom;
+
+# national_bank
+# UNDEFINED
+
+# petrol_station
+# vehicle_saloon
+# cargo_store
+# water_tower

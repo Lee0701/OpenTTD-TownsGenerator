@@ -4,10 +4,10 @@ const path = require('path')
 
 const industryCodeMap = require('./industry_codes/ecs')
 
-const north = 60.009580000
-const east = 20.009580000
-const south = 29.990420000
-const west = -10.009580000
+const north = 60.00958405997682
+const east = 146.0004209016622
+const south = 29.989583333492817
+const west = -12.009582922179774
 const header = [north, east, south, west].join(',')
 
 const parseJson = (file) => {
@@ -28,10 +28,11 @@ const parseJson = (file) => {
 
 const main = async () => {
     const inDir = 'data/trans-siberia'
-    const outFile = 'data/trans-siberia.csv'
+    const outFile = 'data/industry/industries.csv'
     const result = []
     const files = fs.readdirSync(inDir)
     files.forEach((file) => {
+        if(!file.endsWith('.json')) return
         const list = parseJson(path.join(inDir, file))
         list.forEach((line) => result.push(line))
     })
