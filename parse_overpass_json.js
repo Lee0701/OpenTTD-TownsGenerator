@@ -2,34 +2,13 @@
 const fs = require('fs')
 const path = require('path')
 
+const industryCodeMap = require('./industry_codes/ecs')
+
 const north = 60.009580000
 const east = 20.009580000
 const south = 29.990420000
 const west = -10.009580000
 const header = [north, east, south, west].join(',')
-
-const industryCodeMap = {
-    // coal mine
-    coal_mine: 0,
-    // power station
-    power_station: 1,
-    // sawmill
-    sawmill: 2,
-    // forest
-    forest: 3,
-    // oil refinery
-    refinery: 4,
-    // factory
-    factory: 6,
-    // steel mill
-    steel_mill: 8,
-    // farm
-    farm: 9,
-    // iron mine
-    iron_mine: 18,
-    // oil well
-    oil_well: 11,
-}
 
 const parseJson = (file) => {
     const result = []
@@ -48,8 +27,8 @@ const parseJson = (file) => {
 }
 
 const main = async () => {
-    const inDir = 'data/EUXXL'
-    const outFile = 'data/EUXXL_industries_additional.csv'
+    const inDir = 'data/trans-siberia'
+    const outFile = 'data/trans-siberia.csv'
     const result = []
     const files = fs.readdirSync(inDir)
     files.forEach((file) => {
