@@ -4,10 +4,10 @@ const path = require('path')
 
 const industryCodeMap = require('./industry_codes/ecs')
 
-const north = 60.00958405997682
-const east = 146.0004209016622
-const south = 29.989583333492817
-const west = -12.009582922179774
+const north = 60.0095840600000017
+const east = 150.0104210009999974
+const south = 29.9895833329999988
+const west = -15.0095833580000004
 const header = [north, east, south, west].join(',')
 
 const parseJson = (file) => {
@@ -15,7 +15,11 @@ const parseJson = (file) => {
     const input = JSON.parse(fs.readFileSync(file, 'utf8'))
     const type = path.basename(file, '.json')
     const code = industryCodeMap[type]
-    if(code === undefined) return result
+    if(code === undefined) {
+        console.warn(`No code found for ${type}`)
+        return result
+    }
+    if(!input.elements) console.error(`No elements found for ${type}`)
     input.elements.forEach((elem) => {
         if(elem.lat !== undefined && elem.lon !== undefined) {
             result.push([code, elem.lat, elem.lon])

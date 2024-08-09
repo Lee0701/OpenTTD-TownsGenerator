@@ -1,3 +1,0 @@
-[out:json];
-node["man_made"="water_works"];
-out geom;

@@ -1,17 +1,17 @@
 
 const fs = require('fs')
 const readline = require('readline')
-const {mergedCodeMap} = require('./industry_codes')
+const {mergedCodeMap} = require('./geonames_industry_codes/trans-siberia')
 
-const north = 60.009580000
-const east = 20.009580000
-const south = 29.990420000
-const west = -10.009580000
+const north = 60.0095840600000017
+const east = 150.0104210009999974
+const south = 29.9895833329999988
+const west = -15.0095833580000004
 const header = [north, east, south, west].join(',')
 
 const main = async () => {
     const inFile = 'data/allCountries.txt'
-    const outFile = 'data/EUXXL_industries.csv'
+    const outFile = 'data/industries_out.csv'
     const result = []
     const failed = []
     const input = fs.createReadStream(inFile, 'utf8')

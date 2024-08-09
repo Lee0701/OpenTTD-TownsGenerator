@@ -42,8 +42,10 @@ out geom;
 
 # plastic_plant (temp)
 [out:json];
-nwr["man_made"="works"];
-nwr["industrial"="plastic"];
+(
+  nwr["industrial"="plastic"];
+  nwr["industrial"="plastic_processing"];
+);
 out geom;
 
 # forest
@@ -213,4 +215,8 @@ out geom;
 # petrol_station
 # vehicle_saloon
 # cargo_store
+
 # water_tower
+[out:json];
+node["man_made"="water_tower"];
+out geom;
